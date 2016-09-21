@@ -1,16 +1,20 @@
-
-// setup server
 var express = require('express');
 var app = express();
 
-// https://expressjs.com/en/starter/static-files.html
-app.use(express.static('client'));
+app.set('port', (process.env.PORT || 5000));
 
-// setup socket
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+app.use(express.static(__dirname + '/public'));
 
-http.listen(5000, function(){
-    console.log('server starts...');
+// views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+app.get('/', function(request, response) {
+  response.render('pages/index');
 });
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 
