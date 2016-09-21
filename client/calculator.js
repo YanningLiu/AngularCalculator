@@ -15,6 +15,6 @@ app1.controller('ctrl1', function($scope) {
 	};
 });
 
-function start() {
+function database() {
 	location.href = '/db';
 }
