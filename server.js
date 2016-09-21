@@ -10,7 +10,7 @@ app.use(express.static('client'));
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
-http.listen(9000, function(){
+http.listen(5000, function(){
     console.log('server starts...');
 });
 
